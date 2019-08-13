@@ -20,6 +20,11 @@ export const initialState = {todos: [{
                 todos: state.todos.map(item => 
                     item.id === action.payload ? {...item, completed: !item.completed} : item)
             }
+        case 'CLEAR_COMPLETED' :
+            return {
+                ...state,
+                todos: state.todos.filter(item => !item.completed)
+            }
         default:
             return state;
     }
