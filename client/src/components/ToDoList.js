@@ -20,10 +20,11 @@ const ToDoList = () => {
   
     return (
       <div>
-          {state.map(item => (
-              <div onClick={() => dispatch({ type: 'TOGGLE_TODO' })}>
-                <h1>{item.item}</h1>
-              </div>
+          {state.todos.map(item => (
+                <div>
+                    <h1>{item.item}</h1>
+                    <button onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: item.id })}>Mark complete</button>
+                </div>
           ))}
 
           <div>
