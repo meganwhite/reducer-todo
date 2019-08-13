@@ -21,7 +21,9 @@ const ToDoList = () => {
     return (
       <div>
           {state.map(item => (
-              <h1>{item.item}</h1>
+              <div onClick={() => dispatch({ type: 'TOGGLE_TODO' })}>
+                <h1>{item.item}</h1>
+              </div>
           ))}
 
           <div>
