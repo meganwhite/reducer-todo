@@ -21,13 +21,6 @@ const ToDoList = () => {
     return (
       <div>
           <h1>To-do</h1>
-            {state.todos.map(item => (
-                <div className = 'to-do'>
-                    <h3>{item.item}</h3>
-                    <button onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: item.id })}>Mark complete</button>
-                </div>
-          ))}
-
           <div>
           <input
             className="todo-input"
@@ -45,6 +38,15 @@ const ToDoList = () => {
           </button>
           <button onClick={() => dispatch({type: 'CLEAR_COMPLETED' })}>Clear completed</button>
         </div>
+
+            {state.todos.map(item => (
+                <div className={`to-do${item.completed ? ' completed' : ''}`}>
+                    <h3>{item.item}</h3>
+                    <button className='complete-btn' onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: item.id })}>Mark complete</button>
+                </div>
+          ))}
+
+
 
       </div>
     );

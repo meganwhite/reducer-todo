@@ -1,0 +1,13 @@
+$colors:#28a745, #007bff, #ffc107, #17a2b8, #dc3545;
+
+@for $i from 1 through length($colors) {
+	.to-do:nth-child(#{length($colors)}n+#{$i}) {
+		background: nth($colors, $i);
+	}
+}
+
+@for $i from 1 through length($colors) {
+	.to-do.completed:nth-child(#{length($colors)}n+#{$i}) {
+		background: lighten(nth($colors, $i),25%);
+	}
+}
